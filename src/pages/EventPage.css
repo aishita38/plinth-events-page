@@ -12,19 +12,6 @@
     font-family: 'Gilroy', sans-serif;
 }
 
-/* Overlay for the purple/blue tint if needed, but the image seems to have it */
-.event-page::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 5, 20, 0.3);
-    /* Subtle dark overlay */
-    z-index: 1;
-}
-
 .event-content-wrapper {
     position: relative;
     z-index: 2;
@@ -43,16 +30,6 @@
     align-items: center;
 }
 
-.plinth-logo-text {
-    font-size: 1.2rem;
-    letter-spacing: 0.2rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    /* Centered absolutely or using flex? Ref image has it center-ish but maybe slightly off */
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
 
 .top-left-logo svg {
     width: 40px;
@@ -66,6 +43,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
+    flex: flex-row;
     align-items: center;
     justify-content: center;
 }
@@ -75,7 +53,7 @@
     height: 35vw;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    /* box-shadow removed */
     position: relative;
     z-index: 10;
 }
@@ -91,33 +69,38 @@
     z-index: 5;
 }
 
-/* Text Content - Bottom Left */
+/* Text Content - Styling Area */
 .text-content {
-    position: absolute;
-    bottom: 3rem;
-    left: 4rem;
     text-align: left;
+    z-index: 20;
+    flex-shrink: 1;
+    max-width: 60%;
+    min-width: 0;
 }
 
 .tagline {
     /* Tagline uses Oswald */
     font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.3rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.4rem;
     text-transform: uppercase;
     margin-bottom: 0px;
-    opacity: 0.9;
-    font-weight: 400;
+    opacity: 0.8;
+    font-weight: 300;
+    margin-left: 0.5rem;
+    /* Aligning slightly with title */
 }
 
 .event-title {
-    font-size: 5rem;
+    font-size: 6vw;
+    /* Responsive large font */
     font-weight: 700;
     text-transform: uppercase;
     /* Event Title uses Nebula, fallbacks provided */
     font-family: 'Nebula', 'Orbitron', sans-serif;
     letter-spacing: 0.1rem;
     margin: 0;
+    line-height: 1;
     /* Glowing effect */
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     background: linear-gradient(to bottom, #fff, #a0a0ff);
@@ -129,20 +112,23 @@
 /* Right Side Elements */
 .right-sidebar {
     position: absolute;
-    right: 4rem;
-    top: 50%;
+    right: 5%;
+    top: 60%;
+    /* Lowered position */
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 2rem;
+    gap: 1rem;
+    z-index: 20;
 }
 
 .event-number {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 300;
     opacity: 0.9;
+    line-height: 1;
 }
 
 .control-pill {
@@ -156,13 +142,7 @@
     padding: 0 1rem;
 }
 
-.bottom-right-cards {
-    position: absolute;
-    bottom: 2rem;
-    right: 4rem;
-    display: flex;
-    gap: 1rem;
-}
+
 
 .card-outline {
     width: 60px;
@@ -172,23 +152,7 @@
 }
 
 /* Animations */
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
 
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-.black-planet {
-    animation: float 6s ease-in-out infinite;
-}
 
 /* Audio Visualizer (Sound Wave) */
 .sound-wave {
@@ -234,5 +198,98 @@
     100% {
         height: 100%;
         opacity: 1;
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 1024px) {
+    .event-title {
+        font-size: 8vw;
+    }
+
+    .black-planet {
+        width: 45vw;
+        height: 45vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .top-header {
+        padding: 0 1.5rem;
+        top: 1.5rem;
+    }
+
+    .plinth-logo-text {
+        font-size: 1rem;
+    }
+
+    .central-visual {
+        top: 40%;
+        /* Move up slightly to make room for bottom text */
+    }
+
+    .black-planet {
+        width: 60vw;
+        height: 60vw;
+    }
+
+
+
+    .event-title {
+        font-size: 12vw;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .right-sidebar {
+        right: 2rem;
+        top: 85%;
+        /* Move below or beside text? */
+        flex-direction: row;
+        /* Horizontal on mobile maybe? */
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .event-number {
+        font-size: 3rem;
+    }
+
+    .control-pill {
+        width: 100px;
+        height: 40px;
+    }
+
+    /* Hide complex geometry on mobile if it clutters */
+    .geometry-overlay {
+        opacity: 0.5;
+    }
+
+    .bottom-right-cards {
+        display: none;
+    }
+
+    /* Hide decoration cards on mobile */
+}
+
+@media screen and (max-width: 480px) {
+
+
+    .right-sidebar {
+        right: 50%;
+        transform: translate(50%, 0);
+        top: auto;
+        bottom: 2rem;
+    }
+
+    .black-planet {
+        width: 70vw;
+        height: 70vw;
+    }
+
+    .top-left-logo img {
+        width: 60px !important;
     }
 }

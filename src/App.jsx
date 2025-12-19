@@ -1,28 +1,26 @@
 import React from 'react';
 import EventPage from './pages/EventPage';
-import bgImage from './assets/full_bg.png';
+import bgImage from './assets/bg.png';
 
 function App() {
-  const events = [
-    { name: 'IUPC', content: "Step into the thrilling world of ICPC-style programming with Cybros!" },
-    { name: 'HACKATHON', content: "Build the future in this 24-hour innovation sprint." },
-    { name: 'CTF', content: "Capture the Flag security competition." } // Added a 3rd to demo 1/3 splits effectively
-  ];
+  const event = {
+    name: 'QUIZZINGA',
+    content: "Step into the thrilling world of ICPC-style programming with Cybros!"
+  };
 
   return (
     <div style={{
       margin: 0,
       padding: 0,
       width: '100vw',
-      minHeight: '100vh',
+      height: '100vh', // Fixed height for single page
       backgroundImage: `url(${bgImage})`,
-      backgroundSize: '100% 100%', // Stretching to fit total height
-      backgroundAttachment: 'scroll', // Scrolls with content
-      backgroundRepeat: 'no-repeat'
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      overflow: 'hidden' // Prevent scrolling for single page
     }}>
-      {events.map((event, index) => (
-        <EventPage key={index} eventData={event} />
-      ))}
+      <EventPage eventData={event} />
     </div>
   );
 }
