@@ -1,30 +1,30 @@
-import { useState } from 'react'
-import './App.css'
-import EventPage from './pages/EventPage' // Make sure the path is correct
+import React from 'react';
+import EventPage from './pages/EventPage';
+import bgImage from './assets/full_bg.png';
 
 function App() {
   const events = [
-    {
-      name: 'IUPC',
-      content: "Step into the thrilling world of ICPC-style programming with Cybros!",
-    },
-    {
-      name: 'Hackathon',
-      content: "Build, break, and innovate in this 24-hour sprint!",
-    },
-    {
-      name: 'Code-In',
-      content: "A beginner-friendly competition to start your journey.",
-    }
+    { name: 'IUPC', content: "Step into the thrilling world of ICPC-style programming with Cybros!" },
+    { name: 'HACKATHON', content: "Build the future in this 24-hour innovation sprint." },
+    { name: 'CTF', content: "Capture the Flag security competition." } // Added a 3rd to demo 1/3 splits effectively
   ];
 
   return (
-    <div className="flex flex-col">
+    <div style={{
+      margin: 0,
+      padding: 0,
+      width: '100vw',
+      minHeight: '100vh',
+      backgroundImage: `url(${bgImage})`,
+      backgroundSize: '100% 100%', // Stretching to fit total height
+      backgroundAttachment: 'scroll', // Scrolls with content
+      backgroundRepeat: 'no-repeat'
+    }}>
       {events.map((event, index) => (
         <EventPage key={index} eventData={event} />
       ))}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
