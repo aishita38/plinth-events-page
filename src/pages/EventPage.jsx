@@ -2,6 +2,7 @@
 import React from 'react';
 import './EventPage.css';
 import group4 from '../assets/Group 4.png';
+import quizzinga from '../assets/quizzinga.png';
 
 const EventPage = ({ eventData }) => {
   return (
@@ -29,21 +30,31 @@ const EventPage = ({ eventData }) => {
         <svg className="geometry-overlay" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
           {/* Left Side Tech Box */}
           <g>
-            {/* The Square Box (Connection Point) */}
-            <rect x="580" y="340" width="20" height="20" stroke="white" strokeWidth="2" fill="none" />
+            {/* The Square Box (Connection Point) - Minimal overlap with top of image */}
+            <rect x="750" y="280" width="20" height="20" stroke="white" strokeWidth="4" fill="none" />
 
-            {/* Main Path: Square -> Horiz -> Diag -> Horiz -> Diag -> Vert -> Horiz(Gap)Horiz -> Vert */}
-            <path d="M 580 350 H 500 L 450 400 H 200 L 150 450 V 750 H 250 M 350 750 H 450 V 650" stroke="white" strokeWidth="2" fill="none" />
+            {/* Main Path: From square bottom -> Left -> Diag -> Vert Down -> Horiz */}
+            <path d="M 750 300 H 300 L 150 370 V 750 H 500 V 300
+    H 550" stroke="white" strokeWidth="4" fill="none" />
           </g>
         </svg>
 
         {/* Central Visual */}
         <div className="central-visual">
           <img
-            src="https://studentsgymkhana.lnmiit.ac.in/Gymkhana_website/CLUBS/scitech/images/quiz.ico"
-            alt="Event Theme"
+            src={quizzinga}
+            alt="Quiz Tech Logo"
             className="black-planet"
           />
+        </div>
+
+        {/* Left Tech Box Description */}
+        <div className="tech-box-description">
+          <p>
+            Where curiosity meets competition. Join us for mind-bending quizzes,
+            challenging trivia, and intellectual battles that test your knowledge
+            across technology, science, and beyond.
+          </p>
         </div>
 
         {/* Right Sidebar */}
