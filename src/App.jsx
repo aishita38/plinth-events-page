@@ -12,13 +12,15 @@ function App() {
     <div style={{
       margin: 0,
       padding: 0,
-      width: '100vw',
-      height: '100vh', // Fixed height for single page
+      width: '100%',
+      minHeight: '100vh',
       backgroundImage: `url(${bgImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
-      overflow: 'hidden' // Prevent scrolling for single page
+      backgroundAttachment: 'fixed',
+      overflowX: 'hidden',
+      overflowY: 'auto'
     }}>
       <EventPage eventData={event} />
     </div>
