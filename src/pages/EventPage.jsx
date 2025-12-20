@@ -36,6 +36,16 @@ const EventPage = ({ eventData }) => {
             stroke="white"
             strokeWidth="3"
           />
+          {/* Pinned Description using foreignObject */}
+          <foreignObject x="40" y="145" width="280" height="170">
+            <div className="tech-box-inner">
+              <p>
+                Where curiosity meets competition. Join us for mind-bending quizzes,
+                challenging trivia, and intellectual battles that test your knowledge
+                across technology, science, and beyond.
+              </p>
+            </div>
+          </foreignObject>
         </svg>
 
         {/* Central Visual */}
@@ -45,15 +55,6 @@ const EventPage = ({ eventData }) => {
             alt="Quiz Tech Logo"
             className="black-planet"
           />
-        </div>
-
-        {/* Left Tech Box Description */}
-        <div className="tech-box-description">
-          <p>
-            Where curiosity meets competition. Join us for mind-bending quizzes,
-            challenging trivia, and intellectual battles that test your knowledge
-            across technology, science, and beyond.
-          </p>
         </div>
 
         {/* Right Sidebar */}
