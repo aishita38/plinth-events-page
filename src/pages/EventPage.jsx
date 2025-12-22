@@ -29,7 +29,7 @@ const EventPage = ({ eventData }) => {
           viewBox="0 0 1800 800"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="geometry-overlay"
+          className="geometry-overlay max-[480px]:hidden"
         >
           <path
             d="M493.298 16.9008H419.596L323.112 109.306L53.762 109.306L1.50002 155.508V318.5H102.004M493.298 16.9008V33.585H533.5V1.50001H493.298V16.9008ZM189.107 318.5L344.553 318.5V141.391"
@@ -47,7 +47,7 @@ const EventPage = ({ eventData }) => {
             </div>
           </foreignObject>
         </svg>
-
+         
         {/* Central Visual */}
         <div className="central-visual">
           <img
@@ -60,7 +60,7 @@ const EventPage = ({ eventData }) => {
         {/* Right Sidebar */}
         <div className="right-sidebar">
           <div className="event-number">01</div>
-          <div>
+          <div class="max-[480px]:hidden">
             <svg
               width="100%"
               height="auto"
@@ -71,6 +71,7 @@ const EventPage = ({ eventData }) => {
                 maxWidth: 'clamp(150px, 20vw, 250px)',
                 display: 'block'
               }}
+              className='arrowSvg'
             >
               <path
                 d="M25 41.5L18.5649 51.7204C17.3495 53.6508 17.5947 56.1591 19.161 57.8176L25 64M306.5 41.5L312.638 51.8585C313.747 53.7298 313.519 56.1035 312.074 57.7293L306.5 64"
@@ -87,27 +88,15 @@ const EventPage = ({ eventData }) => {
         </div>
 
         {/* Bottom Section: Text (Left) and Cards (Right) */}
-        <div style={{
-          position: 'absolute',
-          bottom: 'clamp(1.5rem, 4vw, 2.5rem)',
-          left: 'clamp(1.5rem, 5vw, 3rem)',
-          right: 'clamp(1.5rem, 5vw, 3rem)',
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'flex-end',
-          justifyContent: 'space-between',
-          zIndex: 20,
-          flexWrap: 'wrap',
-          gap: '1rem'
-        }}>
+        
           {/* Left Text Content */}
-          <div className="text-content">
+          <div className="text-content bottomSection">
             <h3 className="tagline">SHIFT THE VISION</h3>
             <h1 className="event-title font-nebula">{eventData ? eventData.name : 'QUIZZINGA'}</h1>
           </div>
 
           {/* Bottom Right Cards */}
-          <div>
+          <div className='bottomCards '>
             <svg
               width="100%"
               height="100%"
@@ -118,29 +107,34 @@ const EventPage = ({ eventData }) => {
                 maxWidth: 'clamp(200px, 25vw, 385px)',
                 height: 'auto'
               }}
+              className='max-[480px]:ml-[5%]'
             >
               <path
                 d="M0.5 123.5V0.5H15.5621L26.9552 17.3785H61.9069L69.4379 0.5H84.5V123.5H0.5Z"
                 stroke="white"
+                strokeWidth="2"
               />
               <path
                 d="M100.5 123.5V0.5H115.562L126.955 17.3785H161.907L169.438 0.5H184.5V123.5H100.5Z"
                 stroke="white"
+                strokeWidth="2"
               />
               <path
                 d="M200.5 123.5V0.5H215.562L226.955 17.3785H261.907L269.438 0.5H284.5V123.5H200.5Z"
                 stroke="white"
+                strokeWidth="2"
               />
               <path
                 d="M300.5 123.5V0.5H315.562L326.955 17.3785H361.907L369.438 0.5H384.5V123.5H300.5Z"
                 stroke="white"
+                strokeWidth="2"
               />
             </svg>
           </div>
         </div>
 
       </div>
-    </div>
+   
   );
 };
 
